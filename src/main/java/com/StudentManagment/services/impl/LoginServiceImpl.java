@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.model.*;
 
@@ -41,6 +42,10 @@ public class LoginServiceImpl implements LoginService {
 			if (resultSet.next()) {
 				User user = new User();
 				user.setId(resultSet.getInt("id"));
+//				HttpSession session = req.getSession();
+//				session.setAttribute("userid", resultSet.getInt("id"));
+//				int id= (int) session.getAttribute("userid");
+//				System.out.println(id);
 //				System.out.println(user.getId());
 				user.setUser(resultSet.getString("userName"));
 				

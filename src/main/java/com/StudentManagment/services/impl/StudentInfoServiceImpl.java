@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.StudentManagment.service.StudentInfoService;
 import com.StudentManagment.utils.CJdbc;
@@ -19,7 +20,7 @@ public class StudentInfoServiceImpl implements StudentInfoService {
 
 	try {
 		CJdbc.jdbc();
-		String insertQuery = ("insert into student_info (Sname,Dob,phone,email,address,dept,passout_year) values(? ,?, ?, ?, ?, ?, ?);");
+		String insertQuery = ("insert into student_info (Sname,Dob,phone,email,address,dept,passout_year,creator_id) values(? ,?, ?, ?, ?, ?, ?,?);");
 		PreparedStatement pre = CJdbc.con.prepareStatement(insertQuery);
 		
 		PrintWriter out = res.getWriter();
@@ -32,10 +33,10 @@ public class StudentInfoServiceImpl implements StudentInfoService {
 		student.setAddress(req.getParameter("address"));
 		student.setDept(req.getParameter("deptment"));
 		student.setPassout(req.getParameter("passout_year"));
-		User user = new User();
-		user.getId();
-		System.out.println(user.getId());
-//		
+		HttpSession session = req.getSession();
+//		session.setAttribute("userid", resultSet.getInt("id"));
+		int id= (int) session.getAttribute("userid");
+		System.out.println(id);
 //		
 //		String Sname = req.getParameter("Sname");
 //		String DOB = req.getParameter("DOB");
@@ -61,6 +62,7 @@ public class StudentInfoServiceImpl implements StudentInfoService {
 		pre.setString(5, student.getAddress());
 		pre.setString(6, student.getDept());
 		pre.setString(7, student.getPassout());
+		pre.setInt(8, id);
 		
 		int rowsAffected = pre.executeUpdate();
 		if (rowsAffected > 0) {
