@@ -33,8 +33,8 @@ public class StudentInfoServiceImpl implements StudentInfoService {
 		student.setAddress(req.getParameter("address"));
 		student.setDept(req.getParameter("deptment"));
 		student.setPassout(req.getParameter("passout_year"));
+		
 		HttpSession session = req.getSession();
-//		session.setAttribute("userid", resultSet.getInt("id"));
 		int id= (int) session.getAttribute("userid");
 		System.out.println(id);
 //		
