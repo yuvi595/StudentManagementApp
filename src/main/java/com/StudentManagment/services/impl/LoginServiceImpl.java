@@ -21,7 +21,7 @@ public class LoginServiceImpl implements LoginService {
 		// TODO Auto-generated method stub
 		System.out.println("Service code");
 		System.out.println("Username");
-		System.out.println(req.getParameter("password"));
+		System.out.println("Password");
 
 		try {
 			CJdbc.jdbc(); // Ensure the connection is established
@@ -47,6 +47,7 @@ public class LoginServiceImpl implements LoginService {
 				user.setUser(resultSet.getString("userName"));
 				
 				res.sendRedirect("dashboard.html");
+//				out.println("<h1>"+userName+"</h1>");
 				out.println("logged in success");
 			} else {
 				out.println("logged in failed");

@@ -37,23 +37,7 @@ public class StudentInfoServiceImpl implements StudentInfoService {
 		HttpSession session = req.getSession();
 		int id= (int) session.getAttribute("userid");
 		System.out.println(id);
-//		
-//		String Sname = req.getParameter("Sname");
-//		String DOB = req.getParameter("DOB");
-//		String PhoneNo = req.getParameter("PhoneNo");
-//		String Email = req.getParameter("email");
-//		String Address = req.getParameter("address");
-//		String Deptment = req.getParameter("deptment");
-//		String Passout_year = req.getParameter("passout_year");
-//		
-//		
-//		System.out.println(Sname);
-//		System.out.println(DOB);
-//		System.out.println(PhoneNo);
-//		System.out.println(Email);
-//		System.out.println(Address);
-//		System.out.println(Deptment);
-//		System.out.println(Passout_year);
+
 		
 		pre.setString(1, student.getName());
 		pre.setString(2, student.getDOB());
@@ -66,7 +50,7 @@ public class StudentInfoServiceImpl implements StudentInfoService {
 		
 		int rowsAffected = pre.executeUpdate();
 		if (rowsAffected > 0) {
-//			res.sendRedirect("dashboard.html");
+			res.sendRedirect("dashboard.html");
 			out.println("Success: Data successfully inserted into the database.");
 			System.out.println("Successfully inserted the student data");
 		} else {
