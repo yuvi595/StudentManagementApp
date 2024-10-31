@@ -27,6 +27,7 @@ public class DeleteStudentServiceImpl implements DeleteStudentService {
 				int rowsAffected = pre.executeUpdate();
 				if (rowsAffected > 0) {
 					res.sendRedirect("dashboard.html");
+//					req.getRequestDispatcher("StudentView.jsp").forward(req, res);
 				} else {
 					out.println("<h2>Error: No rows deleted. The record might not exist.</h2>");
 				}

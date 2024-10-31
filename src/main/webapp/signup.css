@@ -1,4 +1,4 @@
-/* login.css */
+/* signup.css */
 
 * {
     margin: 0;
@@ -16,6 +16,7 @@ body {
     background-size: cover;
     overflow: hidden;
 }
+
 
 nav {
     position: absolute;
@@ -108,12 +109,6 @@ form button {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.05); }
 }
-form button:hover {
-    background-color: #004d40;
-    transform: translateY(-2px);
-}
-
-
 form button {
     padding: 12px 20px; /* Adjust padding for a better look */
     background-color: #00796b;
@@ -129,8 +124,13 @@ form button {
     display: inline-block; /* Ensures button sizes according to text */
 }
 
+form button:hover {
+    background-color: #004d40;
+    transform: translateY(-2px);
+}
+
 form button::before {
-    content: 'Welcome Back! Log In Now!';
+    content: 'Ready to join us!';
     position: absolute;
     top: 50%;
     left: 50%;
@@ -139,7 +139,7 @@ form button::before {
     opacity: 0.6;
     color: #ffffff;
     animation: hintFloat 3s ease-in-out infinite;
-    white-space: nowrap; /* Prevents text wrapping */
+    
 }
 
 @keyframes hintFloat {

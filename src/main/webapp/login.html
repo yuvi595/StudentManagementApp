@@ -4,22 +4,40 @@
 <meta charset="UTF-8">
 <title>Login</title>
 <link rel="stylesheet" type="text/css" href="login.css">
+
+<script>
+    // JavaScript to set a random background gradient on each page load
+    document.addEventListener("DOMContentLoaded", function() {
+        const gradients = [
+            'linear-gradient(135deg, #0f2027, #203a43, #2c5364)',  // Cool blue tones
+            'linear-gradient(135deg, #1d2b64, #f8cdda)',           // Night sky to dawn
+            'linear-gradient(135deg, #654ea3, #eaafc8)',           // Violet and soft pink
+            'linear-gradient(135deg, #2193b0, #6dd5ed)',           // Bright cyan blue
+            'linear-gradient(135deg, #00c6ff, #0072ff)',           // Deep ocean blue
+            'linear-gradient(135deg, #1c92d2, #f2fcfe)'            // Crisp sky tones
+        ];
+        
+        const randomGradient = gradients[Math.floor(Math.random() * gradients.length)];
+        document.body.style.background = randomGradient;
+    });
+</script>
 </head>
+
 <body>
-
-		<a href="index.html">Home</a> <a href="login.html">login</a> <a
-			href="signup.html">Signup</a>
-			
-		<form action="login" >
-		<label for = "userName">Username:</label>
-		<input type="text" id="userName" name ="userName">
-		<br>
-		<label for="password">Password:</label>
-		<input type="password" id="password" name="password"> 
-		<br>
-		<button type="submit">Submit</button>
-	</form>
-			
-
+ <nav>
+        <a href="home.html">Home</a>
+        <a href="signup.html">Sign Up</a>
+    </nav>
+    <div class="container">
+        <form action="login">
+            <label for="userName">Username:</label>
+            <input type="text" id="userName" name="userName">
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password"> 
+            <br>
+            <button type="submit"> </button>
+        </form>
+    </div>			
 </body>
 </html>

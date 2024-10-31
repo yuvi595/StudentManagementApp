@@ -27,11 +27,14 @@ public class StudentViewServiceImpl implements StudentViewService {
 	    try {
 	        CJdbc.jdbc();
 //	        String query = "SELECT * FROM student_info;";
-	        PreparedStatement pre = CJdbc.con.prepareStatement("SELECT * FROM student_info;");
+	        PreparedStatement pre = CJdbc.con.prepareStatement("SELECT * FROM student_info where creator_id = ?;");
+	
+	        HttpSession session = req.getSession();
+			int id= (int) session.getAttribute("userid");
+			System.out.println(id);
+			  pre.setInt(1, id);
 	        ResultSet rs = pre.executeQuery();
-
-	        
-	        // Iterate over the result set and populate the list
+//	        
 	        while (rs.next()) {
 	            Student student = new Student();
 	            student.setId(rs.getInt("Sid"));
